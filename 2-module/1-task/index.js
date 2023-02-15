@@ -3,7 +3,7 @@ function sumSalary(salaries) {
  for(let key in salaries) {
   let value = salaries[key];
   if (typeof(value) === 'number' && value && value !== Infinity && value !== -Infinity) {
-        sum += salaries[key];
+        sum += value;
   }
  }
  return sum;
