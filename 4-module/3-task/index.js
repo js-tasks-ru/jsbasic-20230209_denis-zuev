@@ -1,16 +1,16 @@
 function highlight(table) {
 
-  const tHead = [];
+  const tableHead = [];
 
   for (let elem of table.rows[0].children) {
-    tHead.push(elem.innerHTML);
+    tableHead.push(elem.innerHTML);
   }
 
-  const statusIndex = tHead.indexOf('Status');
-  const genderIndex = tHead.indexOf('Gender');
-  const ageIndex = tHead.indexOf('Age');
+  const statusIndex = tableHead.indexOf('Status');
+  const genderIndex = tableHead.indexOf('Gender');
+  const ageIndex = tableHead.indexOf('Age');
 
-  for (let row of table.rows) {
+  for (let row of table.tBodies[0].rows) {
 
     if (row.cells[statusIndex].hasAttribute('data-available')){
 
