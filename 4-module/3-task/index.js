@@ -10,23 +10,23 @@ function highlight(table) {
   const genderIndex = tHead.indexOf('Gender');
   const ageIndex = tHead.indexOf('Age');
 
-  for (let i = 1; i < table.rows.length; i++) {
+  for (let row of table.rows) {
 
-    if (table.rows[i].cells[statusIndex].hasAttribute('data-available')){
+    if (row.cells[statusIndex].hasAttribute('data-available')){
 
-      table.rows[i].cells[statusIndex].dataset.available === 'true' ? table.rows[i].classList.add('available') : table.rows[i].classList.add('unavailable');
+      row.cells[statusIndex].dataset.available === 'true' ? row.classList.add('available') : row.classList.add('unavailable');
 
     } else {
 
-      table.rows[i].setAttribute('hidden', true);
+      row.setAttribute('hidden', true);
 
     }
 
-    table.rows[i].cells[genderIndex].innerHTML === 'm' ? table.rows[i].classList.add('male') : table.rows[i].classList.add('female');
+    row.cells[genderIndex].innerHTML === 'm' ? row.classList.add('male') : row.classList.add('female');
 
-    if (table.rows[i].cells[ageIndex].innerHTML < 18) {
+    if (row.cells[ageIndex].innerHTML < 18) {
 
-      table.rows[i].style = 'text-decoration: line-through';
+      row.style = 'text-decoration: line-through';
 
     }
   }
