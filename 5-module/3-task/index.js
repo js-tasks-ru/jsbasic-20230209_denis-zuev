@@ -9,27 +9,22 @@ function initCarousel() {
 
   carouselArrowLeft.style.display = 'none';
 
+  const switchSlides = () => {
 
+    carouselInner.style.transform = `translateX(-${carouselInner.offsetWidth * currentSlide}px)`;
+    currentSlide === 0 ? carouselArrowLeft.style.display = 'none' : carouselArrowLeft.style.display = '';
+    currentSlide === carouseLength - 1 ? carouselArrowRigth.style.display = 'none' : carouselArrowRigth.style.display = '';
+
+  }
 
   carouselArrowLeft.onclick = () => {
     currentSlide--;
-    switchSlides(currentSlide, carouselInner, carouselArrowLeft, carouselArrowRigth, carouseLength);
-
+    switchSlides();
   }
 
   carouselArrowRigth.onclick = () => {
     currentSlide++;
-    switchSlides(currentSlide, carouselInner, carouselArrowLeft, carouselArrowRigth, carouseLength);
-
-
+    switchSlides();
   }
-
-}
-
-function switchSlides(currentSlide, carouselInner, carouselArrowLeft, carouselArrowRigth, carouseLength) {
-
-  carouselInner.style.transform = `translateX(-${carouselInner.offsetWidth * currentSlide}px)`;
-  currentSlide === 0 ? carouselArrowLeft.style.display = 'none' : carouselArrowLeft.style.display = '';
-  currentSlide === carouseLength - 1 ? carouselArrowRigth.style.display = 'none' : carouselArrowRigth.style.display = '';
 
 }
