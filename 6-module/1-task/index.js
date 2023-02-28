@@ -13,13 +13,15 @@
  *
  */
 export default class UserTable {
+
   head = `<tr>
   <th>Имя</th>
   <th>Возраст</th>
   <th>Зарплата</th>
   <th>Город</th>
   <th></th>
-</tr>`
+</tr>`;
+
   constructor(rows) {
     this.rows = rows;
     this.table = this.createTable();
@@ -52,7 +54,6 @@ export default class UserTable {
       tr.appendChild(td);
       tBody.appendChild(tr);
     }
-    
     return tBody
   }
 
@@ -60,7 +61,16 @@ export default class UserTable {
     const table = document.createElement('table');
     table.appendChild(this.createTHead());
     table.appendChild(this.createTBody());
+    table.addEventListener('click', this.deleteRow)
+
     return table
 
   }
+
+  deleteRow(event) {
+    let target = event.target;
+    if (target.tagName !== 'BUTTON') return;
+    target.parentElement.parentElement.style.display = 'none';
+  }
 }
+
