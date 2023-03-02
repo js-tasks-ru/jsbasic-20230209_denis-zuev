@@ -70,7 +70,6 @@ export default class UserTable {
   deleteRow(event) {
     let target = event.target;
     if (target.tagName !== 'BUTTON') return;
-    target.parentElement.parentElement.style.display = 'none';
+    target.parentElement.parentElement.remove();
   }
 }
-
